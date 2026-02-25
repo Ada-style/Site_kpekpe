@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kpekpe-green: #006a4e;
+  --kpekpe-yellow: #fce100;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  @apply bg-gray-50 text-gray-900;
+}
+
+.btn-primary {
+  @apply bg-kpekpe-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all;
+}
+
+.btn-secondary {
+  @apply bg-kpekpe-yellow text-kpekpe-green px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition-all;
+}
