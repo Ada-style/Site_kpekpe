@@ -9,3 +9,4 @@ python-dotenv
 gunicorn
 uvicorn
 groq
+dj-database-url
