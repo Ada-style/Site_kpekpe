@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 
 import StudentDashboard from './pages/StudentDashboard';
+import ChatAI from './components/ChatAI';
 
 // Placeholder pour les futures pages
 const Courses = () => <div className="p-20 text-center">Catalogue de cours en cours...</div>;
@@ -36,6 +37,7 @@ function App() {
               <p>&copy; {new Date().getFullYear()} Kpékpé Learnia. Tous droits réservés.</p>
             </div>
           </footer>
+          <ChatAI />
         </div>
       </AuthProvider>
     </Router>

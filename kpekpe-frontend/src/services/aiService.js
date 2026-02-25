@@ -2,7 +2,7 @@ import api from './api';
 
 export const chatWithAI = async (message, history = []) => {
     try {
-        const response = await api.post('/chat/ai/', {
+        const response = await api.post('/messages/ai/', {
             message,
             history
         });
