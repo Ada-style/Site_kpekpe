@@ -14,18 +14,15 @@ RUN apt-get update && apt-get install -y \
 # Créer le répertoire de travail
 WORKDIR /app
 
-# Installer les dépendances Python
-COPY requirements.txt /app/
+# Copier les dépendances depuis le sous-dossier
+COPY kpekpe-backend/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copier le reste du code
-COPY . /app/
+# Copier tout le contenu du backend dans /app
+COPY kpekpe-backend/ /app/
 
-# Collecter les fichiers statiques (WhiteNoise s'en chargera en prod)
-# RUN python manage.py collectstatic --noinput
+# Port standard pour Hugging Face Spaces
+EXPOSE 7860
 
-# Port par défaut (sera écrasé par Back4App ou Hugging Face)
-EXPOSE 8080
-
-# Commande de démarrage avec port dynamique
-CMD gunicorn --bind 0.0.0.0:${PORT:-8080} kpekpe_backend.wsgi:application
+# Commande de démarrage (on utilise 7860 car c'est ce que Hugging Face attend)
+CMD ["gunicorn", "--bind", "0.0.0.0:7860", "kpekpe_backend.wsgi:application"]
